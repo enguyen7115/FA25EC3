@@ -38,7 +38,7 @@ public:
     vector<Node<U>*> children;
 
     // TODO: Write constructor
-    // Node(const string &nodeID, const U &value);
+    Node(const string &nodeID, const U &value) : id(nodeID), data(value) {}
 };
 
 template <typename T>
@@ -47,24 +47,36 @@ private:
     Node<T>* root;
 
 public:
-    Tree();
-    // TODO: Initialize root pointer to nullptr
+    Tree() : root(nullptr) {}
 
-    void createRoot(const string &id, const T &value);
     // TODO: Allocate memory, assign id, assign data, set as root
+    void createRoot(const string &id, const T &value) {
+        Node<T> newNode = new Node<T>(id, value);
+        root = newNode;
+    }
 
-    void addNode(const string &parentID, const string &childID, const T &value);
     // TODO: Find parent, create child, link parent to child
     // TODO: Support repeated children under multiple parents
+    void addNode(const string &parentID, const string &childID, const T &value) {
+        Node<T> parent = findNode(parentID);
+        Node<T> newNode = new Node<T>(childID, value);
+        parent.children.push_back(newNode);
+    }
 
-    Node<T>* findNode(const string &id);
     // TODO: Use DFS or BFS to search tree
+    Node<T>* findNode(const string &id) {
 
-    void printAll();
+    }
+
     // TODO: Print entire structure in readable form
+    void printAll() {
+        Node<T> currentNode = root;
+    }
 
-    ~Tree();
     // TODO: Free all allocated memory
+    ~Tree() {
+
+    }
 };
 
 #endif //FA25EC3_TREE_H
