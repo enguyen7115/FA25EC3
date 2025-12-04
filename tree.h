@@ -80,7 +80,7 @@ public:
 
     // TODO: Use DFS or BFS to search tree
     Node<T>* findNode(const string &id) {
-        if(root == nullptr)
+        if(!root)
             return nullptr;
 
         if(root->id == id)
@@ -133,21 +133,56 @@ public:
 
     // TODO: Print entire structure in readable form
     void printAll() {
+        if(root == nullptr)
+            return;
 
+        stack<Node<T>*> stack;
+        vector<Node<T>*> visited;
+
+        stack.push(root);
+        while(!stack.empty())
+        {
+            Node<T>* current = stack.top();
+            stack.pop();
+
+            bool alreadyVisited = false;
+            for(Node<T>* v : visited)
+            {
+                if(v == current) {
+                    alreadyVisited = true;
+                    break;
+                }
+            }
+
+            if(alreadyVisited)
+                continue;
+
+            visited.push_back(current);
+
+            cout << current->data << endl;
+
+            for(Node<T>* child : current->children) {
+                bool childVisited = false;
+
+                for(Node<T>* v : visited)
+                {
+                    if(v == child)
+                    {
+                        break;
+                    }
+                }
+
+                if(!childVisited)
+                    stack.push(child);
+
+                printAll();
+            }
+        }
     }
 
     // TODO: Free all allocated memory
     ~Tree() {
-//        Node<T>* currentNode = root;
-//        vector<Node<T>>* currentChildren = currentNode->children;
-//
-//        stack<T> nodes = new stack<T>;
-//
-//        for(int i = 0; i < currentChildren->size(); i++)
-//        {
-//            Node<T> child = currentChildren->pop_back();
-//            nodes.push(child);
-//        }
+
     }
 };
 
