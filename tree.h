@@ -8,6 +8,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stack>
+#include <queue>
+
 using namespace std;
 
 /*
@@ -51,31 +54,100 @@ public:
 
     // TODO: Allocate memory, assign id, assign data, set as root
     void createRoot(const string &id, const T &value) {
-        Node<T> newNode = new Node<T>(id, value);
-        root = newNode;
+        if(root)
+            return;
+
+        root->id = id;
+        root->data = value;
     }
 
     // TODO: Find parent, create child, link parent to child
     // TODO: Support repeated children under multiple parents
     void addNode(const string &parentID, const string &childID, const T &value) {
-        Node<T> parent = findNode(parentID);
-        Node<T> newNode = new Node<T>(childID, value);
-        parent.children.push_back(newNode);
+        Node<T>* parent = findNode(parentID);
+
+        if(!parent) {
+            cerr << "No parent found" << endl;
+            return;
+        }
+
+        Node<T>* child = findNode(childID);
+        if(!child) {
+            child = new Node<T>*(childID, value);
+        }
+        parent->children.push_back(child);
     }
 
     // TODO: Use DFS or BFS to search tree
     Node<T>* findNode(const string &id) {
+        if(root == nullptr)
+            return nullptr;
 
+        if(root->id == id)
+            return root;
+
+        queue<Node<T>*> findQueue;
+        vector<Node<T>*> visited;
+
+        findQueue.push(root);
+        while(!findQueue.empty())
+        {
+            Node<T>* current = findQueue.front();
+            findQueue.pop();
+
+            bool alreadyVisited = false;
+            for(Node<T>* v : visited)
+            {
+                if(v == current) {
+                    alreadyVisited = true;
+                    break;
+                }
+            }
+
+            if(alreadyVisited)
+                continue;
+
+            visited.push_back(current);
+
+            if(current->id == id)
+                return current;
+
+            for(Node<T>* child : current->children) {
+                bool childVisited = false;
+
+                for(Node<T>* v : visited)
+                {
+                    if(v == child)
+                    {
+                        break;
+                    }
+                }
+
+                if(!childVisited)
+                    findQueue.push(child);
+            }
+        }
+
+        return nullptr;
     }
 
     // TODO: Print entire structure in readable form
     void printAll() {
-        Node<T> currentNode = root;
+
     }
 
     // TODO: Free all allocated memory
     ~Tree() {
-
+//        Node<T>* currentNode = root;
+//        vector<Node<T>>* currentChildren = currentNode->children;
+//
+//        stack<T> nodes = new stack<T>;
+//
+//        for(int i = 0; i < currentChildren->size(); i++)
+//        {
+//            Node<T> child = currentChildren->pop_back();
+//            nodes.push(child);
+//        }
     }
 };
 
