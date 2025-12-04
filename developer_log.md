@@ -23,6 +23,6 @@
 
 - Tree.h Commit - tree.h
 - BFS Traversal Commit - tree.h
-- DFS commit - tree.h
+- DFS commit - tree.h, developer_log.md
 
 ## Journal Entry 2: 
