@@ -25,4 +25,24 @@
 - BFS Traversal Commit - tree.h
 - DFS commit - tree.h, developer_log.md
 
-## Journal Entry 2: 
+## Journal Entry 2: 12/8/2025
+
+- Forgot to set childVisited in the findNode() method. 
+- Fixed createRoot() again so that we do set a newNode, instead of dereferencing nullptr.
+- Implemented playGame() method to play the game.
+- Noticed printing was not working, will work on later. 
+- Implemented Destructor. Running at O($n^2$), so not that fastest...
+- Had to search up how to check if an input is a number or not in C++...
+- So far, working okay. We will have to see.
+
+### Errors of the Day:
+- A lot! Especially with all the implemented stuff. Biggest problem was 
+checking if visited and child were the same node. Forgot how to check so it gave a bunch of errors.
+(I named the nodes v not visited...)
+
+### Files Modified
+- tree.h mostly. Not munch of main was modified. Did start adding nodes though... not sure how I will do that correctly yet.
+
+### Commit History
+- Initial commit of the day with broken destructor and different
+fixes to createRoot and findNode. Also the implemented playGame().
