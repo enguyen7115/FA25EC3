@@ -212,21 +212,22 @@ public:
 
             string choice;
             cin >> choice;
+            int intChoice;
 
             try {
-                stod(choice);
+                intChoice = stoi(choice);
             } catch(const std::exception& e)
             {
                 cout << "Input a valid number, please." << endl;
                 continue;
             }
 
-            if(choice >= current->children.size()) {
+            if(intChoice >= current->children.size()) {
                 cout << "Invalid choice, please enter a correct number.\n";
                 continue;
             }
 
-            current = current->children[choice];
+            current = current->children[intChoice];
         }
     }
 

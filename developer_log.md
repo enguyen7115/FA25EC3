@@ -39,6 +39,7 @@
 - A lot! Especially with all the implemented stuff. Biggest problem was 
 checking if visited and child were the same node. Forgot how to check so it gave a bunch of errors.
 (I named the nodes v not visited...)
+- Small error, forgot to make the string into an int.
 
 ### Files Modified
 - tree.h mostly. Not munch of main was modified. Did start adding nodes though... not sure how I will do that correctly yet.
@@ -46,3 +47,8 @@ checking if visited and child were the same node. Forgot how to check so it gave
 ### Commit History
 - Initial commit of the day with broken destructor and different
 fixes to createRoot and findNode. Also the implemented playGame().
+- intChoice added. Not just string. Forgot to add an integer.
+
+## Journal Entry 3: 12/9/2025
+
+- Realized I implemented everything wrong... Will fix the playGame() and 
