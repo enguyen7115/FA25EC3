@@ -134,7 +134,7 @@ public:
 
     // TODO: Print entire structure in readable form
     void printAll() {
-        if(root == nullptr)
+        if(!root)
             return;
 
         stack<Node<T>*> stack;
@@ -160,7 +160,12 @@ public:
 
             visited.push_back(current);
 
-            cout << current->data << endl;
+            cout << "Node " << current->id << " : " << current->data << endl;
+
+            for (Node<T>* child : current->children)
+            {
+                cout << "  Child -> " << child->id << endl;
+            }
 
             for(Node<T>* child : current->children) {
                 bool childVisited = false;
@@ -175,9 +180,9 @@ public:
 
                 if(!childVisited)
                     stack.push(child);
-
-                printAll();
             }
+
+            cout << endl;
         }
     }
 

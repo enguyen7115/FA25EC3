@@ -51,4 +51,16 @@ fixes to createRoot and findNode. Also the implemented playGame().
 
 ## Journal Entry 3: 12/9/2025
 
-- Realized I implemented everything wrong... Will fix the playGame() and 
+- Realized I implemented everything wrong... Will fix the playGame() and printAll()
+- Fixed the printing as well to print something closer to what the README.md showed.
+- Implemented printAll() into playGame() method
+
+### Errors of the Day:
+- Followed printAll() method. Recursion does not work when doing it this way, thus I removed the recursive call.
+
+### Files Modified
+- tree.h - printAll() method.
+- tree.h - playGame() method.
+
+### Commit History
+- First commit included new playGame() that I think will work. 
