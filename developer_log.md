@@ -1,10 +1,3 @@
-- A dated entry every time you work on the assignment
-- A description of what you worked on
-- Any bugs, issues, or problems you encountered
-- How you attempted to solve each issue
-- A brief explanation of every commit you make
-- A list of all files modified during each commit
-
 # Developer Log
 
 ## Journal Entry 1: 12/4/2025
@@ -46,7 +39,7 @@ checking if visited and child were the same node. Forgot how to check so it gave
 
 ### Commit History
 - Initial commit of the day with broken destructor and different
-fixes to createRoot and findNode. Also the implemented playGame().
+fixes to createRoot and findNode. Also, the implemented playGame().
 - intChoice added. Not just string. Forgot to add an integer.
 
 ## Journal Entry 3: 12/9/2025
@@ -66,6 +59,8 @@ fixes to createRoot and findNode. Also the implemented playGame().
 - main.cpp - Fixing the curl call.
 
 ### Commit History
-- First commit included new playGame() that I think will work. 
-- Second commit included fixing of the curl call... Not sure what's wrong but we will see.
-- 
+- First commit included new playGame() that I think will work.
+
+## Journal Entry 3: 12/9/2025
+- Not sure how to fix. 
+- Will just submit what I have and hope everything is implemented correctly.

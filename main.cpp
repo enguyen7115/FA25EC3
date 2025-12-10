@@ -33,18 +33,18 @@ struct StoryNodeRaw {
 // Step 1. Call OpenAI with curl
 string runCurlToOpenAI(const string &apiKey) {
     string command =
-             "curl https://api.openai.com/v1/responses "
-             "-H \"Content-Type: application/json\" "
-             "-H \"Authorization: Bearer " + apiKey + "\" "
-                                                      "-d '{"
-                                                      "\"model\": \"gpt-4.1-mini\","
-                                                      "\"input\": \"Generate a choose-your-own-adventure story as a structured list of nodes. "
-                                                      "Each node must have: NODE_ID, NODE_TEXT, CHILD_IDS as a comma-separated list. "
-                                                      "Limit to 2 nodes. The format must be strictly: "
-                                                      "[NODE_ID] TEXT: ... NEXT: child1, child2, ... "
-                                                      "No extra commentary.\""
-                                                      "}' "
-                                                      " > story.txt";
+        "curl https://api.openai.com/v1/responses "
+        "-H \"Content-Type: application/json\" "
+        "-H \"Authorization: Bearer " + apiKey + "\" "
+        "-d '{"
+        "\"model\": \"gpt-4.1-mini\","
+        "\"input\": \"Generate a choose-your-own-adventure story as a structured list of nodes. "
+        "Each node must have: NODE_ID, NODE_TEXT, CHILD_IDS as a comma-separated list. "
+        "Limit to 2 nodes. The format must be strictly: "
+        "[NODE_ID] TEXT: ... NEXT: child1, child2, ... "
+        "No extra commentary.\""
+        "}' "
+        " > story.txt";
 
     cout << "Fetching story from OpenAI..." << endl;
     system(command.c_str());
