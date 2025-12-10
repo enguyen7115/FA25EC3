@@ -202,7 +202,7 @@ public:
         Node<T>* current = root;
         while(true)
         {
-            cout << current->data << endl;
+            printAll();
 
             if(current->children.empty()) {
                 cout << "You have reached the end of your path! Thank you for playing" << endl;

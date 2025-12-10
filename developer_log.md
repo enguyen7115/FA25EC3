@@ -57,10 +57,15 @@ fixes to createRoot and findNode. Also the implemented playGame().
 
 ### Errors of the Day:
 - Followed printAll() method. Recursion does not work when doing it this way, thus I removed the recursive call.
-
+- Problem calling actual main. Something about URL rejected, port numbers, etc. Looks like the string is wrong?
+  - Very annoying error. Was not exactly sure what happened with the main.cpp. 
+  
 ### Files Modified
 - tree.h - printAll() method.
 - tree.h - playGame() method.
+- main.cpp - Fixing the curl call.
 
 ### Commit History
 - First commit included new playGame() that I think will work. 
+- Second commit included fixing of the curl call... Not sure what's wrong but we will see.
+- 
